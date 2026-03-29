@@ -3,24 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>クリックゲーム</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>1分間クリックゲーム</h1>
+  <h1>10秒間クリックゲーム</h1>
+  <div id="wrapper">
 
   <!-- スコアとタイマーの表示 -->
-  <p>クリック数: <span id="count">0</span></p>
-  <p>残り時間: <span id="timer">60</span>秒</p>
+    <div id="game-area">
+        <p>クリック数: <span id="count">0</span></p>
+        <p>残り時間: <span id="timer">10</span>秒</p>
+        <!-- クリックボタン -->
+        <button id="click-btn">クリック！</button>
+    
 
-  <!-- クリックボタン -->
-  <button id="click-btn">クリック！</button>
-
-  <!-- ゲームスタートボタン -->
-  <button id="start-btn">スタート</button>
+        <!-- ゲームスタートボタン -->
+        <button id="start-btn">スタート</button>
+    </div>
 
   <!-- ランキング表示エリア -->
-  <h2>ランキング</h2>
-  <ol id="ranking"></ol>
-
+    <div id="ranking-area">
+        <h2>ランキング</h2>
+        <ol id="ranking"></ol>
+    </div>
+  </div>
+ <script src="script.js"></script>
 </body>
 </html>
