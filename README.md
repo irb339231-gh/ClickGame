@@ -26,3 +26,7 @@ https://irb339231-gh.github.io/ClickGame/
 - JavaScriptのDOM操作
 - setIntervalを使ったタイマー実装
 - localStorageを使ったデータ保存
+
+## 今後追加したい機能
+
+- オンラインランキング
