@@ -8,21 +8,18 @@
 卒業制作でランキングを導入予定。
 ランキングの実装練習。
 
-## 🛠 使用技術
+## デモ
+
+https://irb339231-gh.github.io/ClickGame/
+
+## 使用技術
 
 - HTML
 - CSS
 - JavaScript
 - localStorage（ランキング保存）
 
-## 💻 ローカルで動かす方法
-```bash
-git clone git@github.com:irb339231-gh/ClickGame.git
-cd ClickGame
-index.html をブラウザで開く
-```
-
-## 📖 学んだこと
+## 学んだこと
 
 - HTMLの基本構造
 - CSSのflexboxレイアウト
