@@ -1,97 +1,62 @@
-/* 全体のレイアウト */
 body {
   font-family: sans-serif;
   text-align: center;
-  background-color: #f1f5f1;
-  color: #000007;
+  background-color: #1a1a2e;
+  color: #ffffff;
   padding: 40px;
+  margin: 0;
 }
 
-/* タイトル */
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+header {
+  margin-bottom: 40px;
 }
 
-/* #クリック数 {
-  font-size: 40px;
-  margin-bottom: 10px;
+header h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
 }
 
-/* 横並びにする */
-#wrapper {
-  display: flex;        /* 横並びにする */
-  justify-content: center; /* 中央寄せ */
-  gap: 60px;            /* 左右の間隔 */
-  align-items: flex-start; /* 上揃え */
-}
-
-/* 左側：ゲームエリア */
-#game-area {
-  flex: 1;              /* 余った幅を使う */
-  max-width: 400px;
-}
-
-/* 右側：ランキングエリア */
-#ranking-area {
-  width: 260px;         /* 固定幅 */
-  text-align: left;     /* 左揃え */
-}
-
-/* クリック数・タイマーの表示 */
-#count {
-  font-size: 40px;
-  font-weight: bold;
-  color: #050505;
-}
-
-#timer {
-  font-size: 40px;
-  font-weight: bold;
-  color: #030303;
-}
-
-/* クリックボタン */
-#click-btn {
-  width: 200px;
-  height: 200px;
-  font-size: 24px;
-  font-weight: bold;
-  border-radius: 50%;
-  background-color: #e4730f;
-  color: #1a1a2e;
-  border: none;
-  cursor: pointer;
-  margin: 20px;
-}
-
-#click-btn:hover {
-  opacity: 0.85;
-}
-
-/* スタートボタン */
-#start-btn {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 32px;
-  font-size: 18px;
-  background-color: #030303;
-  color: #f0f0f5;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* ランキング */
-#ranking {
-  list-style: none;
-  padding: 0;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-#ranking li {
-  padding: 8px;
-  border-bottom: 1px solid #ffffff33;
+header p {
+  color: #aaaaaa;
   font-size: 16px;
+}
+
+.game-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.game-card {
+  display: block;
+  width: 220px;
+  background-color: #16213e;
+  border: 1px solid #ffffff22;
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  border-color: #e8ff3c;
+}
+
+.game-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.game-card h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.game-card p {
+  font-size: 13px;
+  color: #aaaaaa;
+  line-height: 1.6;
 }

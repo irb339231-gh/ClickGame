@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>クリックゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>10秒間クリックゲーム</h1>
+  <div id="wrapper">
+
+  <!-- スコアとタイマーの表示 -->
+    <div id="game-area">
+        <p>クリック数: <span id="count">0</span></p>
+        <p>残り時間: <span id="timer">10</span>秒</p>
+        <!-- クリックボタン -->
+        <button id="click-btn">クリック！</button>
+    
+
+        <!-- ゲームスタートボタン -->
+        <button id="start-btn">スタート</button>
+    </div>
+
+  <!-- ランキング表示エリア -->
+    <div id="ranking-area">
+        <h2>ランキング</h2>
+        <ol id="ranking"></ol>
+    </div>
+  </div>
+ <script src="script.js"></script>
+</body>
+</html>

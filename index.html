@@ -2,32 +2,30 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>クリックゲーム</title>
+  <title>ゲーム一覧</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>10秒間クリックゲーム</h1>
-  <div id="wrapper">
+  <header>
+    <h1>ゲーム一覧</h1>
+    <p>遊びたいゲームを選んでください</p>
+  </header>
 
-  <!-- スコアとタイマーの表示 -->
-    <div id="game-area">
-        <p>クリック数: <span id="count">0</span></p>
-        <p>残り時間: <span id="timer">10</span>秒</p>
-        <!-- クリックボタン -->
-        <button id="click-btn">クリック！</button>
-    
+  <main>
+    <div class="game-list">
 
-        <!-- ゲームスタートボタン -->
-        <button id="start-btn">スタート</button>
+      <!-- クリックゲーム -->
+      <a href="games/click/index.html" class="game-card">
+        <div class="game-icon">👆</div>
+        <h2>1分間クリックゲーム</h2>
+        <p>1分間に何回クリックできるか挑戦しよう！</p>
+      </a>
+
+      <!-- 今後追加するゲームはここに追加 -->
+
     </div>
+  </main>
 
-  <!-- ランキング表示エリア -->
-    <div id="ranking-area">
-        <h2>ランキング</h2>
-        <ol id="ranking"></ol>
-    </div>
-  </div>
- <script src="script.js"></script>
 </body>
 </html>
