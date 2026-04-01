@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>反応速度ゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>反応速度ゲーム</h1>
+
+  <div id="wrapper">
+
+    <div id="game-area">
+
+      <!-- クリックエリア（赤→緑に変わる） -->
+      <div id="click-area">
+        <p id="message">スタートを押してください</p>
+      </div>
+
+      <!-- 結果表示 -->
+      <p id="result"></p>
+
+      <!-- スタート・リセットボタン -->
+      <button id="start-btn">スタート</button>
+      <button id="reset-btn">リセット</button>
+
+    </div>
+
+    <!-- ランキング表示エリア -->
+    <div id="ranking-area">
+      <h2>ランキング</h2>
+      <ol id="ranking"></ol>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

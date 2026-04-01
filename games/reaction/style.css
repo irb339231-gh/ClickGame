@@ -1,0 +1,109 @@
+/* 全体のレイアウト */
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f1f5f1;
+  color: #000007;
+  padding: 40px;
+}
+
+/* タイトル */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* 横並びにする */
+#wrapper {
+  display: flex;        /* 横並びにする */
+  justify-content: center; /* 中央寄せ */
+  gap: 60px;            /* 左右の間隔 */
+  align-items: flex-start; /* 上揃え */
+}
+
+/* 左側：ゲームエリア */
+#game-area {
+  flex: 1;              /* 余った幅を使う */
+  max-width: 400px;
+}
+
+/* 右側：ランキングエリア */
+#ranking-area {
+  width: 260px;         /* 固定幅 */
+  text-align: left;     /* 左揃え */
+}
+
+/* クリックエリア */
+#click-area {
+  width: 100%;
+  height: 200px;
+  background-color: #6e5858;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+#click-area.active {
+  background-color: #6dae6d;
+}
+
+/* メッセージ */
+#message {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 結果表示 */
+#result {
+  font-size: 20px;
+  font-weight: bold;
+  color: #050505;
+}
+
+/* スタートボタン */
+#start-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 32px;
+  font-size: 18px;
+  background-color: #030303;
+  color: #f0f0f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#reset-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 28px;
+  font-size: 16px;
+  background-color: #050505;
+  color: #f0f0f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#start-btn:hover, #reset-btn:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+/* ランキング */
+#ranking {
+  list-style: none;
+  padding: 0;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#ranking li {
+  padding: 8px;
+  border-bottom: 1px solid #00000022;
+  font-size: 16px;
+}
