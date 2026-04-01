@@ -1,55 +1,64 @@
 // 1. 変数の準備
-let startTime = null;   // 開始時刻
-let timer = null;       // setIntervalの入れ物
-let isRunning = false;  // 動いているかどうか
+let startTime = null;
+let waitTimer = null;   // setTimeoutの入れ物
+let isWaiting = false;  // 緑になるのを待っている状態
 
 // 2. HTML要素の取得
-const secondsEl = document.getElementById('seconds');
-const millisecondsEl = document.getElementById('milliseconds');
+const clickArea = document.getElementById('click-area');
+const message = document.getElementById('message');
+const result = document.getElementById('result');
 const startBtn = document.getElementById('start-btn');
-const stopBtn = document.getElementById('stop-btn');
 const resetBtn = document.getElementById('reset-btn');
 
 // 3. スタートボタン
 startBtn.addEventListener('click', function() {
-    if (isRunning) return; // すでに動いている場合は無視
-    startTime = Date.now(); // 開始時刻を記録
-    isRunning = true;      // 動いている状態に
-    timer = setInterval(function() {
-        const elapsed = Date.now() - startTime; // 経過時間を計算
-        const seconds = Math.floor(elapsed / 1000); // 秒部分
-        const milliseconds = elapsed % 1000; // ミリ秒部分
-        secondsEl.textContent = String(seconds).padStart(2, '0'); // 秒を表示
-        millisecondsEl.textContent = String(milliseconds).padStart(3, '0'); // ミリ秒を表示
-    }, 10); // 10msごとに更新
+  message.textContent = '待て...';
+  isWaiting = true;
+
+  // ランダムな時間後に緑にする
+  waitTimer = setTimeout(function() {
+    clickArea.classList.add('active');  // 緑にする
+    message.textContent = '今だ！';
+    startTime = Date.now();             // 開始時刻を記録
+  }, Math.random() * 3000 + 1000);
 });
 
-// 4. ストップボタン
-stopBtn.addEventListener('click', function() {
-  if (!isRunning) return; // 動いていない場合は無視
-  clearInterval(timer);  // タイマー停止
-  isRunning = false;     // 動いていない状態に
-  
-  const elapsed = Date.now() - startTime; // 経過時間を計算
-  const name = prompt('名前を入力してください'); // 名前を入力してもらう
-  if (name) {
-    saveScore(name, elapsed); // スコアを保存
-  } 
-    showRanking(); // ランキングを表示
+// 4. クリックエリアをクリックしたとき
+clickArea.addEventListener('click', function() {
+  // 緑になる前にクリックしたら
+  if (isWaiting && !clickArea.classList.contains('active')) {
+    message.textContent = '早すぎ！もう一度';
+    clearTimeout(waitTimer);
+    isWaiting = false;
+    return;
+  }
+
+  // 緑のときにクリックしたら
+  if (clickArea.classList.contains('active')) {
+    const elapsed = Date.now() - startTime;
+    message.textContent = '結果：' + elapsed + 'ms';
+    clickArea.classList.remove('active');
+    isWaiting = false;
+
+    const name = prompt('名前を入力してください');
+    if (name) saveScore(name, elapsed);
+    showRanking();
+  }
 });
 
 // 5. リセットボタン
 resetBtn.addEventListener('click', function() {
-    clearInterval(timer);
-    isRunning = false;
-    secondsEl.textContent = '00';
-    millisecondsEl.textContent = '000';
+  clearTimeout(waitTimer);
+  isWaiting = false;
+  clickArea.classList.remove('active');
+  message.textContent = 'スタートを押してください';
+  result.textContent = '';
 });
 
 // スコアを保存する関数
 function saveScore(name, score) {
   // 既存のランキングを取得
-  const data = localStorage.getItem('stop_ranking');
+  const data = localStorage.getItem('reaction_ranking');
   const ranking = data ? JSON.parse(data) : [];
 
   // 新しいスコアを追加
@@ -57,19 +66,19 @@ function saveScore(name, score) {
 
   // 高い順に並べ替え
   ranking.sort(function(a, b) {
-    return Math.abs(a.score - 10000) - Math.abs(b.score - 10000);
+    return a.score - b.score; // 反応速度は速い方が良いので、スコアが小さい順に並べる
   });
 
   // 上位5件だけ保存
   ranking.splice(5);
 
   // localStorageに保存
-  localStorage.setItem('stop_ranking', JSON.stringify(ranking));
+  localStorage.setItem('reaction_ranking', JSON.stringify(ranking));
 }
 
 // ランキングを画面に表示する関数
 function showRanking() {
-  const data = localStorage.getItem('stop_ranking');
+  const data = localStorage.getItem('reaction_ranking');
   const ranking = data ? JSON.parse(data) : [];
   const rankingEl = document.getElementById('ranking');
 
