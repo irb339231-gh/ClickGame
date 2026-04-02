@@ -1,0 +1,120 @@
+/* 全体のレイアウト */
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f1f5f1;
+  color: #000007;
+  padding: 40px;
+}
+
+/* タイトル */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* 横並びにする */
+#wrapper {
+  display: flex;        /* 横並びにする */
+  justify-content: center; /* 中央寄せ */
+  gap: 60px;            /* 左右の間隔 */
+  align-items: flex-start; /* 上揃え */
+}
+
+/* 左側：ゲームエリア */
+#game-area {
+  flex: 1;              /* 余った幅を使う */
+  max-width: 400px;
+}
+
+/* 右側：ランキングエリア */
+#ranking-area {
+  width: 260px;         /* 固定幅 */
+  text-align: left;     /* 左揃え */
+}
+
+/* クリックエリア */
+#choices {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.choice {
+  padding: 20px 40px;
+  font-size: 24px;
+  background-color: #877f7f;
+  color: #f0f0f5;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+} 
+
+.win { color: #1a8a1a; }
+.lose { color: #8a1a1a; }
+.draw { color: #888888; }
+
+.choice:hover {
+  background-color: #ca1818;
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* メッセージ */
+#message {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 結果表示 */
+#result {
+  font-size: 20px;
+  font-weight: bold;
+  color: #050505;
+}
+
+/* スタートボタン */
+#start-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 32px;
+  font-size: 18px;
+  background-color: #030303;
+  color: #f0f0f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#reset-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 28px;
+  font-size: 16px;
+  background-color: #050505;
+  color: #f0f0f5;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#start-btn:hover, #reset-btn:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+/* ランキング */
+#ranking {
+  list-style: none;
+  padding: 0;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#ranking li {
+  padding: 8px;
+  border-bottom: 1px solid #00000022;
+  font-size: 16px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>じゃんけんゲーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>じゃんけんゲーム</h1>
+
+  <div id="wrapper">
+
+    <div id="game-area">
+
+      <!-- グー・チョキ・パー（自分） -->
+      <div id="choices">
+        <button class="choice" data-choice="rock">✊</button>
+        <button class="choice" data-choice="paper">✋</button>
+        <button class="choice" data-choice="scissors">✌️</button>
+      </div>
+
+      <!-- CPUの選択表示 -->
+      <div id="computer-area">
+        <p>CPUの選択:</p>
+        <p id="computer-choice">-</p>
+      </div>
+
+      <!-- 勝敗表示 -->
+      <p id="result"></p>
+
+      <!-- 連勝数表示 -->
+      <p id="win-streak">連勝数: 0</p>
+
+      <!-- スタート・リセットボタン -->
+      <button id="start-btn">スタート</button>
+      <button id="reset-btn">リセット</button>
+
+    </div>
+
+    <!-- ランキング表示エリア -->
+    <div id="ranking-area">
+      <h2>ランキング</h2>
+      <ol id="ranking"></ol>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
