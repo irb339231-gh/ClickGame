@@ -97,9 +97,7 @@ function saveScore(name, score) {
 
   ranking.push({ name: name, score: score });
 
-  ranking.sort(function(a, b) {
-    return b.score - a.score;
-  });
+  ranking.sort((a, b) => b.score - a.score);
 
   ranking.splice(5);
 

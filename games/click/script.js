@@ -60,9 +60,7 @@ function saveScore(name, score) {
   ranking.push({ name: name, score: score });
 
   // 高い順に並べ替え
-  ranking.sort(function(a, b) {
-    return b.score - a.score;
-  });
+  ranking.sort((a, b) => b.score - a.score); // スコアが高い順に並べる
 
   // 上位5件だけ保存
   ranking.splice(5);
